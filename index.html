@@ -76,8 +76,8 @@
       <header>Made by Muhammad Hamza Farooq &#128512;</header>
       <h1 class="tbHeading">Table App</h1>
       <div class="inputTable-Container">
-        <input type="number" placeholder="Enter tabel number" id="tabelNum" />
-        <input type="number" placeholder="Enter tabel range" id="tabelRange" />
+        <input type="number" placeholder="Enter table number" id="tabelNum" />
+        <input type="number" placeholder="Enter table range" id="tabelRange" />
         <button onclick="printTable()" class="btn">Print Table</button>
       </div>
       <div class="tableResult">
@@ -91,15 +91,20 @@
           let tabelContainer = document.getElementById("tableContainer");
           let html = "";
 
-          for (let i = 1; i <= parseInt(range); i++) {
-            html += `
+          // if (parseInt(table) != 0 && parseInt(range) != 0) {
+          if (table != '' && range != '') {
+            for (let i = 1; i <= parseInt(range); i++) {
+              html += `
              <tr>
                   <td>${parseInt(table)} x ${i} = ${parseInt(table) * i}</td>
               </tr>
               <br>
              `;
 
-            tabelContainer.innerHTML = html;
+              tabelContainer.innerHTML = html;
+            }
+          } else {
+            alert("Please Enter Table Number And Table Range !!!!!!!");
           }
         }
       </script>
