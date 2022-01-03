@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabel App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: url("./img/gqw2_botk_180724.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        object-fit: fill;
+        width: 100%;
+        height: 100vh;
+        opacity: 0.8;
+      }
+
+      .tbHeading {
+        font-size: 5rem;
+        font-weight: 800;
+        color: whitesmoke;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+      }
+      .inputTable-Container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 10px 0px;
+        padding: 10px;
+      }
+      input {
+        width: 300px;
+        padding: 10px 5px;
+        margin: 10px;
+      }
+      .btn {
+        width: 300px;
+        padding: 10px 5px;
+        margin: 10px;
+        border-radius: 10px;
+        outline: none;
+        background-color: tan;
+        color: whitesmoke;
+        cursor: pointer;
+      }
+      .tableResult {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        font-size: 4rem;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        background-color: gray;
+        color: black;
+        margin-bottom: 30px;
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>Made by Muhammad Hamza Farooq &#128512;</header>
+      <h1 class="tbHeading">Tabel App</h1>
+      <div class="inputTable-Container">
+        <input type="number" placeholder="Enter tabel number" id="tabelNum" />
+        <input type="number" placeholder="Enter tabel range" id="tabelRange" />
+        <button onclick="printTable()" class="btn">Print Table</button>
+      </div>
+      <div class="tableResult">
+        <table id="tableContainer"></table>
+      </div>
+
+      <script>
+        function printTable() {
+          let table = document.getElementById("tabelNum").value;
+          let range = document.getElementById("tabelRange").value;
+          let tabelContainer = document.getElementById("tableContainer");
+          let html = "";
+
+          for (let i = 1; i <= parseInt(range); i++) {
+            html += `
+             <tr>
+                  <td>${parseInt(table)} x ${i} = ${parseInt(table) * i}</td>
+              </tr>
+              <br>
+             `;
+
+            tabelContainer.innerHTML = html;
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>
